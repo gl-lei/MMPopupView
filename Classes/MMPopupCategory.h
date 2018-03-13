@@ -52,6 +52,8 @@
 
 - (void) mm_showDimBackground;
 - (void) mm_hideDimBackground;
+- (void) mm_removeDimBackgroundView;
+- (void) mm_removeDimBackgroundBlurView;
 
 - (void) mm_distributeSpacingHorizontallyWith:(NSArray*)view;
 - (void) mm_distributeSpacingVerticallyWith:(NSArray*)view;

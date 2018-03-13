@@ -220,6 +220,9 @@ static NSString * const MMPopupViewHideAllNotification = @"MMPopupViewHideAllNot
                                  [self removeFromSuperview];
                              }
                              
+                             [self.attachedView mm_removeDimBackgroundBlurView];
+                             [self.attachedView mm_removeDimBackgroundView];
+                             
                              if ( self.hideCompletionBlock )
                              {
                                  self.hideCompletionBlock(self, finished);
@@ -298,6 +301,9 @@ static NSString * const MMPopupViewHideAllNotification = @"MMPopupViewHideAllNot
                                  [self removeFromSuperview];
                              }
                              
+                             [self.attachedView mm_removeDimBackgroundBlurView];
+                             [self.attachedView mm_removeDimBackgroundView];
+                             
                              if ( self.hideCompletionBlock )
                              {
                                  self.hideCompletionBlock(self, finished);
@@ -373,6 +379,9 @@ static NSString * const MMPopupViewHideAllNotification = @"MMPopupViewHideAllNot
                              {
                                  [self removeFromSuperview];
                              }
+                             
+                             [self.attachedView mm_removeDimBackgroundBlurView];
+                             [self.attachedView mm_removeDimBackgroundView];
                              
                              if ( self.hideCompletionBlock )
                              {

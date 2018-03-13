@@ -158,6 +158,10 @@ static const void *mm_dimBackgroundBlurEffectStyleKey = &mm_dimBackgroundBlurEff
     return dimView;
 }
 
+- (void)setMm_dimBackgroundView:(UIView *)mm_dimBackgroundView {
+    objc_setAssociatedObject(self, mm_dimBackgroundViewKey, mm_dimBackgroundView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
 //mm_dimBackgroundBlurEnabled
 - (BOOL)mm_dimBackgroundBlurEnabled
 {
@@ -236,6 +240,11 @@ static const void *mm_dimBackgroundBlurEffectStyleKey = &mm_dimBackgroundBlurEff
 - (void)setMm_dimBackgroundBlurView:(UIView *)mm_dimBackgroundBlurView
 {
     objc_setAssociatedObject(self, mm_dimBackgroundBlurViewKey, mm_dimBackgroundBlurView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (void) mm_removeDimBackgroundBlurView {
+    [self.mm_dimBackgroundBlurView removeFromSuperview];
+    self.mm_dimBackgroundBlurView = nil;
 }
 
 //mm_dimBackgroundAnimating
@@ -339,6 +348,13 @@ static const void *mm_dimBackgroundBlurEffectStyleKey = &mm_dimBackgroundBlurEff
                              }
                          }
                      }];
+}
+
+- (void) mm_removeDimBackgroundView {
+    self.mm_dimReferenceCount = 0;
+    
+    [self.mm_dimBackgroundView removeFromSuperview];
+    self.mm_dimBackgroundView = nil;
 }
 
 - (void) mm_distributeSpacingHorizontallyWith:(NSArray*)views
